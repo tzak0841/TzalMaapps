@@ -6,6 +6,20 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
+  Widget showSignUp() {
+    return RaisedButton(
+      child: Text('Sign Up'),
+      onPressed: () {},
+    );
+  }
+
+  Widget showSignIn() {
+    return RaisedButton(
+      child: Text('Sign In'),
+      onPressed: () {},
+    );
+  }
+
   Widget showUser() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'User : ', hintText: 'Your User'),
@@ -15,7 +29,7 @@ class _AuthenState extends State<Authen> {
   Widget showPass() {
     return TextFormField(
       decoration:
-          InputDecoration(labelText: 'Password :', hintText: 'Password'),
+          InputDecoration(labelText: 'Password :', hintText: 'Your Password'),
     );
   }
 
@@ -49,8 +63,19 @@ class _AuthenState extends State<Authen> {
             child: showUser(),
           ),
           Container(
-            margin: EdgeInsets.only(left: 60.0, right: 60.0),
+            margin: EdgeInsets.only(left: 50.0, right: 60.0),
             child: showPass(),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 50.0, right: 50.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(child: showSignIn()),
+                Expanded(
+                  child: showSignUp(),
+                )
+              ],
+            ),
           )
         ],
       ), //การกำหนดให้แสดงข้อมูลแบบเรียงจากบนลงล่าง แบบ colum เปลี่ยนอันบนเป็น logo
