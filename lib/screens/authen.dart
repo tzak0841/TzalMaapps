@@ -49,7 +49,8 @@ class _AuthenState extends State<Authen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      margin: EdgeInsets.only(top: 10.0), // กำนหดตำแหน่ง เป็นด้านบนและ 70.0
+      color: Colors.blue,
+      padding: EdgeInsets.only(top: 30.0), // กำนหดตำแหน่ง เป็นด้านบนและ 70.0
       alignment: Alignment(0, -1),
       // child: showTitle(), ใส่ widget อย่างเดียว
       child: Column(
