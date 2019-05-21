@@ -47,9 +47,11 @@ class _AuthenState extends State<Authen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(resizeToAvoidBottomPadding: false, // แก้บัก keyboard -->resizeToAvoidBottomPadding: 
         body: Container(
-      color: Colors.blue,
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [Colors.blue[50], Colors.blue[200]],begin: Alignment(-1, -1))), //ปรับสีเป็นเฉด -1,-1 ขอบขวาและซ้าย 
       padding: EdgeInsets.only(top: 30.0), // กำนหดตำแหน่ง เป็นด้านบนและ 70.0
       alignment: Alignment(0, -1),
       // child: showTitle(), ใส่ widget อย่างเดียว
@@ -70,7 +72,7 @@ class _AuthenState extends State<Authen> {
           Container(
             margin: EdgeInsets.only(left: 50.0, right: 50.0),
             child: Row(
-              children: <Widget>[
+              children: <Widget>
                 Expanded(child: showSignIn()),
                 Expanded(
                   child: showSignUp(),
