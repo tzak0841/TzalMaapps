@@ -6,6 +6,19 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
+  Widget showUser() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'User : ', hintText: 'Your User'),
+    );
+  }
+
+  Widget showPass() {
+    return TextFormField(
+      decoration:
+          InputDecoration(labelText: 'Password :', hintText: 'Password'),
+    );
+  }
+
   Widget showlogo() {
     return Image.asset('images/logo_strawerry.png');
   }
@@ -31,7 +44,14 @@ class _AuthenState extends State<Authen> {
           Container(
             child: showTitle(),
           ),
-          showTitle()
+          Container(
+            margin: EdgeInsets.only(left: 50.0, right: 50.0),
+            child: showUser(),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 60.0, right: 60.0),
+            child: showPass(),
+          )
         ],
       ), //การกำหนดให้แสดงข้อมูลแบบเรียงจากบนลงล่าง แบบ colum เปลี่ยนอันบนเป็น logo
     )); // xy 0,0 ตรงกลาง
