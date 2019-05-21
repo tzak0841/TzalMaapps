@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tzakapp/screens/authen.dart';
 
 void main(){
@@ -8,6 +9,8 @@ void main(){
 class MyAppz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]]);// เพิ่มการล็อคการหมุนหน้าจอ
     return MaterialApp(home: Authen());
   }
 }
