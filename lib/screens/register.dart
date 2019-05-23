@@ -12,7 +12,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final formkey = GlobalKey<FormState>();
 
-  String name, user, password;
+  String Name, User, Password;
 
   Widget registerButtom(BuildContext context) {
     return IconButton(
@@ -21,7 +21,7 @@ class _RegisterState extends State<Register> {
         print('You Click Register');
         if (formkey.currentState.validate()) {
           formkey.currentState.save();
-          print('name = $name,user = $user,password = $password');
+          print('name = $Name,user = $User,password = $Password');
           uploadValueToServer(context);
 
         }
@@ -32,11 +32,11 @@ class _RegisterState extends State<Register> {
 
 //async เป็นการทำเทรด
   void uploadValueToServer(BuildContext contexst) async{ 
-    String urlPHP = 'http://androidthai.in.th/tid/addUserUng.php?isAdd=true&name=$name&user=$user&password=$password';
+    String urlPHP = 'http://androidthai.in.th/tid/addUserUng.php?isAdd=true&name=$Name&user=$User&password=$Password';
     //var ประกาศตัวแปรให้กับ object
     var respone = await get(urlPHP);
     var resultString = json.decode(respone.body);
-    print('resultString ==>$resultString');
+    print('resultString ==> $resultString');
 
     if (resultString.toString() =='true') {
       //Creat POP
@@ -57,7 +57,7 @@ class _RegisterState extends State<Register> {
         }
       },
       onSaved: (String valueName) {
-        name = valueName;
+        Name = valueName;
       },
     );
   }
@@ -73,7 +73,7 @@ class _RegisterState extends State<Register> {
         }
        },
        onSaved: (String valueUser){
-         user = valueUser;
+         User = valueUser;
        },
     );
   }
@@ -88,7 +88,7 @@ class _RegisterState extends State<Register> {
         }
       },
       onSaved: (String valuePass){
-         password = valuePass;
+         Password = valuePass;
       }
     );
   }
@@ -96,10 +96,10 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     // resizeToAvoidBottomPadding: false,
+     resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text('Register'),
-        actions: <Widget>[registerButtom(context)],
+        actions: <Widget>[registerButtom(context)]
       ),
       body: Form(
         key: formkey,
